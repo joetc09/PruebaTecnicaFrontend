@@ -6,14 +6,15 @@ const modalDescription = document.getElementById("modalDescription");
 const modalCategory = document.getElementById("modalCategory");
 const modalImages = document.getElementById("modalImages");
 
+
 const productModal = new bootstrap.Modal(
   document.getElementById("productModal")
-);
+);//productModal
 
-// Evento click
+
 btnLoadProducts.addEventListener("click", loadProducts);
 
-// Función principal
+
 function loadProducts() {
   fetch("https://api.escuelajs.co/api/v1/products")
     .then(response => response.json())
@@ -21,10 +22,12 @@ function loadProducts() {
       renderProducts(products.slice(0, 41));
     })
     .catch(error => console.error(error));
-}
+}//loadProducts
 
-// Crear cards
+
+
 function renderProducts(products) {
+    
   productsContainer.innerHTML = "";
 
   products.forEach(product => {
@@ -35,7 +38,7 @@ function renderProducts(products) {
 
     const col = document.createElement("div");
     col.className = "col";
-
+    
     col.innerHTML = `
       <div class="card shadow-sm h-100">
         <img src="${product.images[0]}" 
@@ -63,9 +66,8 @@ function renderProducts(products) {
 
     productsContainer.appendChild(col);
   });
-}
+} //create cards
 
-// Mostrar modal
 function showModal(product) {
   modalTitle.textContent = product.title;
   modalDescription.textContent = product.description;
@@ -82,4 +84,4 @@ function showModal(product) {
   });
 
   productModal.show();
-}
+}//showModal

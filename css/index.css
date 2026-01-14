@@ -1,0 +1,13 @@
+a {
+    align-content: end;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+h1{
+    text-align: center;
+}
